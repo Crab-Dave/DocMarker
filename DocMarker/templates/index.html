@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DocMarker</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="sidebar" id="fileList"></div>
+        <div class="resize-bar"></div>
+        <div class="viewer">
+            <div class="button-bar">
+                <button id="prevBtn">上一篇</button>
+                <button id="nextBtn">下一篇</button>
+                <button id="exportBtn">导出</button>
+                <button id="filterBtn">筛选</button>
+            </div>
+            <div id="fileContent" class="file-content">请选择一个文件</div>
+        </div>
+    </div>
+
+    <!-- 导出面板 -->
+    <div id="exportDialog" class="modal hidden">
+        <div class="modal-content">
+            <h3>选择要导出的标记颜色：</h3>
+            <label><input type="checkbox" value="A" checked /> A</label>
+            <label><input type="checkbox" value="B" checked /> B</label>
+            <div class="modal-actions">
+                <button id="confirmExport">导出</button>
+                <button id="cancelExport">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 筛选面板 -->
+    <div id="filterDialog" class="modal hidden">
+        <div class="modal-content">
+            <h3>筛选文件</h3>
+            <label>文件名匹配（正则）:
+                <input type="text" id="filenamePattern" placeholder="如：^test.*\.pdf$">
+            </label><br>
+            <label>内容匹配（正则）:
+                <input type="text" id="contentPattern" placeholder="如：hello world">
+            </label><br>
+            <label>文档长度范围：
+                <input type="number" id="minLength" placeholder="最小长度">
+                <input type="number" id="maxLength" placeholder="最大长度">
+            </label><br>
+            <label>选择标记：
+                <select id="markSelection">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                </select>
+            </label><br>
+            <div class="modal-actions">
+                <button id="applyFilter">应用筛选</button>
+                <button id="cancelFilter">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
